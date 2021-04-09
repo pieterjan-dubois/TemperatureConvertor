@@ -27,7 +27,10 @@ namespace View
 
         private void ConvertToCelsius(object sender, RoutedEventArgs e)
         {
-            textBox.Text = "You clicked the button";
+            string TextBox = textBox.Text;
+            string TextBoxDouble = Double.Parse("20.0e-6").ToString("0.#####");
+            double convert = (ConvertToCelsius - 32) * 5/9  
+
         }
     }
 }
