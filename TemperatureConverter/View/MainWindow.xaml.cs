@@ -27,10 +27,20 @@ namespace View
 
         private void ConvertToCelsius(object sender, RoutedEventArgs e)
         {
-            string TextBox = textBox.Text;
-            string TextBoxDouble = Double.Parse("20.0e-6").ToString("0.#####");
-            double convert = (ConvertToCelsius - 32) * 5/9  
+            var fString = textBox2.Text;
+            var fDouble = Double.Parse(fString);
+            var celsius = (fDouble - 32) / 1.8;
+            var celsiusString = celsius.ToString();
+            textBox2.Text = celsiusString;
+        }
 
+        private void ConvertToFarenheit(object sender, RoutedEventArgs e)
+        {
+            var cString = textBox.Text;
+            var cDouble = Double.Parse(cString);
+            var farenheit = (cDouble * 1.8) + 32;
+            var FarenheitString = farenheit.ToString();
+            textBox.Text = FarenheitString;
         }
     }
 }
