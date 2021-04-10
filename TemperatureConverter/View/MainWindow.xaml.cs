@@ -30,8 +30,11 @@ namespace View
             var fahrenheitString = fahrenheitTextBox.Text;
             var fahrenheit = double.Parse(fahrenheitString);
             var celsius = (fahrenheit - 32) / 1.8;
+            var kelvin = celsius + 273.15;
             var celsiusString = celsius.ToString();
+            var kelvinString = kelvin.ToString();
             celsiusTextBox.Text = celsiusString;
+            kelvinTextBox.Text = kelvinString;
         }
 
         private void ConvertFahrenheit(object sender, RoutedEventArgs e)
@@ -39,7 +42,22 @@ namespace View
             var celsiusString = celsiusTextBox.Text;
             var celsius = double.Parse(celsiusString);
             var fahrenheit = celsius * 1.8 + 32;
+            var kelvin = celsius + 273.15;
             var fahrenheitString = fahrenheit.ToString();
+            var kelvinString = kelvin.ToString();
+            fahrenheitTextBox.Text = fahrenheitString;
+            kelvinTextBox.Text = kelvinString;
+        }
+
+        private void ConvertKelvin(Object Sender, RoutedEventArgs e)
+        {
+            var kelvinString = kelvinTextBox.Text;
+            var kelvin = Double.Parse(kelvinString);
+            var celsius = kelvin - 273.15;
+            var fahrenheit = celsius * 1.8 + 32;
+            var celsiusString = celsius.ToString();
+            var fahrenheitString = fahrenheit.ToString();
+            celsiusTextBox.Text = celsiusString;
             fahrenheitTextBox.Text = fahrenheitString;
         }
 

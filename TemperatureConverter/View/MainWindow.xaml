@@ -65,5 +65,20 @@
             <TextBox Grid.Row="1" x:Name="fahrenheitTextBox"  Style="{StaticResource labelStyleTextBox}"/>
             <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Content="Convert" Click="ConvertCelsius" Style="{StaticResource labelStyleButton}" />
         </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="kelvin" Style="{StaticResource labelStyle}" />
+            <TextBox Grid.Row="1" x:Name="kelvinTextBox"  Style="{StaticResource labelStyleTextBox}"/>
+            <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Content="Convert" Click="ConvertKelvin" Style="{StaticResource labelStyleButton}" />
+        </Grid>
     </StackPanel>
 </Window>
