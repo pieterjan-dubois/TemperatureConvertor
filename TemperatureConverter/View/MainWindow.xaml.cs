@@ -25,7 +25,7 @@ namespace View
             InitializeComponent();
         }
 
-        private void ConvertToCelsius(object sender, RoutedEventArgs e)
+        private void ConvertCelsius(object sender, RoutedEventArgs e)
         {
             var fahrenheitString = fahrenheitTextBox.Text;
             var fahrenheit = double.Parse(fahrenheitString);
@@ -34,7 +34,7 @@ namespace View
             celsiusTextBox.Text = celsiusString;
         }
 
-        private void ConvertToFahrenheit(object sender, RoutedEventArgs e)
+        private void ConvertFahrenheit(object sender, RoutedEventArgs e)
         {
             var celsiusString = celsiusTextBox.Text;
             var celsius = double.Parse(celsiusString);
