@@ -48,7 +48,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Celsius" Style="{StaticResource labelStyle}" />
-            <TextBox Grid.Row="1" x:Name="textBox2" Style="{StaticResource labelStyleTextBox}" />
+            <TextBox Grid.Row="1" x:Name="celsiusTextBox" Style="{StaticResource labelStyleTextBox}" />
             <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Content="Convert" Click="ConvertToFarenheit" Style="{StaticResource labelStyleButton}" />
         </Grid>
         <Grid>
@@ -62,7 +62,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Fahrenheit" Style="{StaticResource labelStyle}" />
-            <TextBox Grid.Row="1" x:Name="textBox"  Style="{StaticResource labelStyleTextBox}"/>
+            <TextBox Grid.Row="1" x:Name="fahrenheitTextBox"  Style="{StaticResource labelStyleTextBox}"/>
             <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Content="Convert" Click="ConvertToCelsius" Style="{StaticResource labelStyleButton}" />
         </Grid>
     </StackPanel>
