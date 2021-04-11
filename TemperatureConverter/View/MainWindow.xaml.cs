@@ -66,7 +66,7 @@ namespace View
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var kelvin = (double)value;
-            var fahrenheit = (kelvin - 273.15) * 1.8;
+            var fahrenheit = (kelvin * 1.8) - 459.67;
 
             return fahrenheit.ToString();
         }
@@ -74,7 +74,7 @@ namespace View
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var fahrenheit = double.Parse((string)value);
-            var kelvin = (fahrenheit - 32) / 1.8;
+            var kelvin = (fahrenheit + 459.67) / 1.8;
 
             return kelvin;
         }
