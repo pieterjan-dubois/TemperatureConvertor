@@ -32,14 +32,15 @@ namespace View
             var celsius = kelvin - 273.15;
             var fahrenheit = celsius * 1.8 + 32;
 
-            
-            
+
+            var kelvinString = kelvin.ToString();
             var fahrenheitString = fahrenheit.ToString();
 
-            
-            
+
+
             fahrenheitTextBox.Text = fahrenheitString;
         }
+    }
 
         public class CelsiusConverter : IValueConverter
         {
@@ -59,5 +60,4 @@ namespace View
                 return kelvin;
             }
         }
-    }
 }
