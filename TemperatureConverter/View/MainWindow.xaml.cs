@@ -28,16 +28,16 @@ namespace View
 
         private void sliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
-            var celsius = slider.Value;
+            var kelvin = slider.Value;
+            var celsius = kelvin - 273.15;
             var fahrenheit = celsius * 1.8 + 32;
 
             
-            var celsiusString = celsius.ToString();
+            
             var fahrenheitString = fahrenheit.ToString();
 
             
-            celsiusTextBox.Text = celsiusString;
+            
             fahrenheitTextBox.Text = fahrenheitString;
         }
 
