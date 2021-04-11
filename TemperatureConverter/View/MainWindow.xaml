@@ -49,7 +49,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Celsius" Style="{StaticResource labelStyle}" />
-            <TextBox Grid.Row="1" x:Name="celsiusTextBox" Text="{Binding ElementName=slider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource labelStyleTextBox}"/>
+            <TextBox Grid.Row="1" x:Name="celsiusTextBox" Style="{StaticResource labelStyleTextBox}" Text="{Binding ElementName=slider, Path=Value, Converter={StaticResource celsiusConverter} , UpdateSourceTrigger=PropertyChanged}"/>
             
         </Grid>
         <Grid>
