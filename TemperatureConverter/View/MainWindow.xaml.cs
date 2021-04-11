@@ -61,5 +61,9 @@ namespace View
             fahrenheitTextBox.Text = fahrenheitString;
         }
 
+        private void sliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 }
