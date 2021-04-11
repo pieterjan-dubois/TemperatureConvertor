@@ -27,9 +27,9 @@ namespace View
         }
 
         private void sliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        { 
-           
-           
+        {
+
+            var celsius = slider.Value;
             var fahrenheit = celsius * 1.8 + 32;
 
             
