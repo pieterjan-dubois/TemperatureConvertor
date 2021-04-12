@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static View.TemperatureScale;
 
 namespace View
 {
@@ -25,24 +26,31 @@ namespace View
         {
             InitializeComponent();
         }
+    }
 
-        private void sliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    public class TemperatureConverter : IValueConverter
+    {
+        public ITemperatureScale TemperatureScale { get; set; }
+
+       
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var kelvin = slider.Value;
-            var celsius = kelvin - 273.15;
-            var fahrenheit = celsius * 1.8 + 32;
+            var kelvin = (double)value;
+            return this.TemperatureScale.ConvertFromKelvin(kelvin).ToString();
 
+        }
 
-            var kelvinString = kelvin.ToString();
-            var fahrenheitString = fahrenheit.ToString();
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var temperature = Double.Parse((string)value);
+            return this.TemperatureScale.ConvertToKelvin(temperature).ToString();
 
-
-
-            fahrenheitTextBox.Text = fahrenheitString;
         }
     }
 
-        public class CelsiusConverter : IValueConverter
+
+    public class CelsiusConverter : IValueConverter
         {
             public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
             {

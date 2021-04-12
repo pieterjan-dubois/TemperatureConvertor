@@ -31,16 +31,7 @@ namespace View
             }
         }
 
-        public class TemperatureConverter : ITemperatureScale
-        {
-            public TemperatureConverter()
-            {
-
-            }
-
-           
-
-        }
+      
 
         public class CelsiusTemperatureScale : ITemperatureScale
         {
