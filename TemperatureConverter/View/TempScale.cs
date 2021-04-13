@@ -10,6 +10,8 @@ namespace View
     {
         string Name { get; }
 
+        
+
         double ConvertToKelvin(double temperature);
         double ConvertFromKelvin(double temperature);
     }
