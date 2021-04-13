@@ -44,7 +44,7 @@ namespace View
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var temperature = Double.Parse((string)value);
-            return this.TemperatureScale.ConvertToKelvin(temperature).ToString();
+            return this.TemperatureScale.ConvertToKelvin(temperature);
 
         }
     }
