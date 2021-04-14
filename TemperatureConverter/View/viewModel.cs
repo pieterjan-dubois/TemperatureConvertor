@@ -10,14 +10,16 @@ namespace View
     public class ConverterViewModel : INotifyPropertyChanged
     {
         private double temperatureInKelvin;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ConverterViewModel()
         {
-            this.Kelvin = new TemperatureScaleViewModel(new KelvinTemperatureScale());
-            this.Celsius = new TemperatureScaleViewModel(new CelsiusTemperatureScale());
-            this.Fahrenheit = new TemperatureScaleViewModel(new FahrenheitTemperatureScale());
+            this.Kelvin = new TemperatureScaleViewModel(this, new KelvinTemperatureScale());
+            this.Celsius = new TemperatureScaleViewModel(this, new CelsiusTemperatureScale());
+            this.Fahrenheit = new TemperatureScaleViewModel(this, new FahrenheitTemperatureScale());
         }
+
         public double TemperatureInKelvin
         {
             get
@@ -27,9 +29,11 @@ namespace View
             set
             {
                 temperatureInKelvin = value;
+
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TemperatureInKelvin)));
             }
         }
+
         public TemperatureScaleViewModel Kelvin { get; }
 
         public TemperatureScaleViewModel Celsius { get; }
@@ -39,17 +43,16 @@ namespace View
 
     public class TemperatureScaleViewModel : INotifyPropertyChanged
     {
-        private readonly ITemperatureScale temperatureScale;
-
         private readonly ConverterViewModel parent;
 
+        private readonly ITemperatureScale temperatureScale;
 
         public TemperatureScaleViewModel(ConverterViewModel parent, ITemperatureScale temperatureScale)
         {
             this.parent = parent;
             this.temperatureScale = temperatureScale;
 
-            this.parent.PropertyChanged += TemperatureUpdated;
+            this.parent.PropertyChanged += (sender, args) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Temperature)));
         }
 
         public string Name => temperatureScale.Name;
@@ -62,15 +65,11 @@ namespace View
             }
             set
             {
-                parent.TemperatureInKelvin = temperatureScale.ConvertFromKelvin(value);
+                parent.TemperatureInKelvin = temperatureScale.ConvertToKelvin(value);
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+    }
 
-        private void TemperatureUpdated(object sender, PropertyChangedEventArgs args)
-       {
-           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Temperature)));
-      }
-}
 }
