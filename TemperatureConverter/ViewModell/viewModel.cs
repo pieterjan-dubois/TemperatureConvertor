@@ -5,15 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Cellss;
+using Modell;
 
-namespace View
-{
-    public class ConverterViewModel : INotifyPropertyChanged
+
+
+namespace ViewModel { 
+    public class ConverterViewModel
     {
-       
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public ConverterViewModel()
         {
             this.TemperatureInKelvin = new Cell<double>();
@@ -42,7 +40,7 @@ namespace View
        }
     }
 
-    public class TemperatureScaleViewModel : INotifyPropertyChanged
+    public class TemperatureScaleViewModel 
     {
         private readonly ConverterViewModel parent;
 
@@ -53,22 +51,12 @@ namespace View
             this.parent = parent;
             this.temperatureScale = temperatureScale;
 
-            this.parent.PropertyChanged += (sender, args) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Temperature)));
+            this.Temperature = this.parent.TemperatureInKelvin.Derive(kelvin => temperatureScale.ConvertFromKelvin(kelvin));
         }
 
         public string Name => temperatureScale.Name;
 
-        public double Temperature
-        {
-            get
-            {
-                return temperatureScale.ConvertFromKelvin(parent.TemperatureInKelvin);
-            }
-            set
-            {
-                parent.TemperatureInKelvin = temperatureScale.ConvertToKelvin(value);
-            }
-        }
+        public Cell<double> Temperature { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
