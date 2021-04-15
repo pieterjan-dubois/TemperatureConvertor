@@ -10,13 +10,13 @@ namespace View
 {
     public class ConverterViewModel : INotifyPropertyChanged
     {
-        private double temperatureInKelvin;
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ConverterViewModel()
         {
-            this.temperatureInKelvin = new Cell<double>();
+            this.TemperatureInKelvin = new Cell<double>();
 
             this.Kelvin = new TemperatureScaleViewModel(this, new KelvinTemperatureScale());
             this.Celsius = new TemperatureScaleViewModel(this, new CelsiusTemperatureScale());
