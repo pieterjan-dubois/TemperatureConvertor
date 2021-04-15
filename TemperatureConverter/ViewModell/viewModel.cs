@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Cellss;
 
 namespace View
 {
     public class ConverterViewModel : INotifyPropertyChanged
     {
-        private double temperatureInKelvin;
+        private Cell<T> temperatureInKelvin;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
