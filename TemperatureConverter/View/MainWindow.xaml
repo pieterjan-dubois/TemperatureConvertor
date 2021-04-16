@@ -60,8 +60,12 @@
                         </Grid.RowDefinitions>
                         
                         <TextBlock Grid.Row="0" Text="{Binding Name}" Style="{StaticResource labelStyle}" />
-                        
+
+                        <Button Command="{Binding pos}" Content="Pos"  />
+
                         <TextBox Grid.Row="1" Style="{StaticResource labelStyleTextBox}" Text="{Binding Path=Temperature.Value, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <Button Command="{Binding Neg}" Content="Neg" />
                         
                     </Grid>
                     
