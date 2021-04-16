@@ -58,7 +58,7 @@ namespace ViewModel {
 
         public Cell<double> Temperature { get; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        
     }
 
 }
