@@ -63,11 +63,11 @@
                         
                         <TextBlock Grid.Row="0" Text="{Binding Name}" Style="{StaticResource labelStyle}" />
 
-                        <Button Style="{StaticResource labelStyleButton}"  Text="" />
+                        <Button Style="{StaticResource labelStyleButton}"  Grid.Column="0" Content="-" />
 
                         <TextBox Grid.Row="1" Style="{StaticResource labelStyleTextBox}" Text="{Binding Path=Temperature.Value, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <Button  />
+                        <Button Style="{StaticResource labelStyleButton}"  Grid.Column="0" Content="+" />
                         
                     </Grid>
                     
