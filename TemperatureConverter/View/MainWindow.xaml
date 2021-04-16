@@ -28,10 +28,12 @@
         </Style>
 
         <Style x:Key="labelStyleButton" TargetType="{x:Type Button}" >
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Padding" Value="3.5px" />
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Width" Value="32" />
             <Setter Property="FontSize" Value="16"/>
         </Style>
+
+       
     </Window.Resources>
     
         <StackPanel>
@@ -61,11 +63,11 @@
                         
                         <TextBlock Grid.Row="0" Text="{Binding Name}" Style="{StaticResource labelStyle}" />
 
-                        <Button Command="{Binding pos}" Content="Pos"  />
+                        <Button Style="{StaticResource labelStyleButton}"  Text="" />
 
                         <TextBox Grid.Row="1" Style="{StaticResource labelStyleTextBox}" Text="{Binding Path=Temperature.Value, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <Button Command="{Binding Neg}" Content="Neg" />
+                        <Button  />
                         
                     </Grid>
                     
