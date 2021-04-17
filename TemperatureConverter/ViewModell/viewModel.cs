@@ -91,7 +91,9 @@ namespace ViewModel
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            var newValue = cell.Value + delta;
+
+            return minimum <= newValue && newValue <= maximum;
         }
 
         public void Execute(object parameter)
