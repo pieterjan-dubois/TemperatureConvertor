@@ -34,5 +34,7 @@ namespace View
 
         public static readonly DependencyProperty HeaderProperty =
             DependencyProperty.Register("Header", typeof(string), typeof(TemperatureScaleControl), new PropertyMetadata(""));
+
+       
     }
 }

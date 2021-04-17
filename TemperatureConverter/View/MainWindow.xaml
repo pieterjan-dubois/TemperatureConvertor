@@ -13,7 +13,7 @@
         <ItemsControl ItemsSource="{Binding Scales}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <local:TemperatureScaleControl Header="{Binding Name}" />
+                    <local:TemperatureScaleControl Header="{Binding Name}"  />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
